@@ -20,7 +20,9 @@
     "@types/tough-cookie": "^4.0.0",
     "axios": "^0.21.1",
     "axios-cookiejar-support": "^1.0.1",
+    "events": "^3.3.0",
     "qs": "^6.9.4",
+    "stream-browserify": "^3.0.0",
     "tough-cookie": "^4.0.0"
   },
   "devDependencies": {
@@ -35,7 +37,7 @@
     "test": "standard && tsc lib/nano.d.ts && npm run jest",
     "jest": "jest test/* --coverage --env node"
   },
-  "main": "./lib/nano.js",
+  "main": "lib/nano.js",
   "types": "./lib/nano.d.ts",
   "engines": {
     "node": ">=10"
