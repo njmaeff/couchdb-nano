@@ -31,7 +31,7 @@ declare namespace nano {
     username: string,
     password: string
   }
-  
+
   /** RequestDefaults options */
   interface RequestDefaultsOptions {
     timeout?: number;
@@ -53,11 +53,11 @@ declare namespace nano {
      * @see README: {@link https://www.npmjs.com/package/nano#pool-size-and-open-sockets}
      */
     requestDefaults?: RequestDefaultsOptions;
-    /** Logging function 
+    /** Logging function
      * @see README: {@link https://www.npmjs.com/package/nano#logging}
      */
     log?(id: string, args: any): void;
-    /** Set to false to prevent parsing of url 
+    /** Set to false to prevent parsing of url
      * @see README: {@link https://www.npmjs.com/package/nano#configuration}
      */
     parseUrl?: boolean;
@@ -107,30 +107,30 @@ declare namespace nano {
      * @see README: {@link https://www.npmjs.com/package/nano#nanoscopename}
      */
     scope<D>(db: string): DocumentScope<D>;
-    /** 
+    /**
      * Initiates a custom request
      * @see README: {@link https://www.npmjs.com/package/nano#nanorequestopts-callback}
      **/
     request(opts: RequestOptions | string, callback?: Callback<any>): Promise<any>;
-    /** 
+    /**
      * Initiates a custom request
      * @see README: {@link https://www.npmjs.com/package/nano#nanorequestopts-callback}
      **/
     relax(opts: RequestOptions | string, callback?: Callback<any>): Promise<any>;
-    /** 
+    /**
      * Initiates a custom request
      * @see README: {@link https://www.npmjs.com/package/nano#nanorequestopts-callback}
      **/
     dinosaur(opts: RequestOptions | string, callback?: Callback<any>): Promise<any>;
-    /** 
+    /**
      * Initiates new session for specified user credentials by providing Cookie value.
      * @see Docs: {@link http://docs.couchdb.org/en/latest/api/server/authn.html#cookie-authentication} */
     auth(username: string, userpass: string, callback?: Callback<DatabaseAuthResponse>): Promise<DatabaseAuthResponse>;
-    /** 
+    /**
      * Returns information about the authenticated user, including a User Context Object, the authentication method and database that were used, and a list of configured authentication handlers on the server.
      * @see Docs: {@link http://docs.couchdb.org/en/latest/api/server/authn.html#get--_session} */
     session(callback?: Callback<DatabaseSessionResponse>): Promise<DatabaseSessionResponse>;
-    /** 
+    /**
      * Returns a list of all database events in the CouchDB instance.
      * @see Docs: {@link http://docs.couchdb.org/en/latest/api/server/common.html#get--_db_updates} */
     updates(callback?: Callback<DatabaseUpdatesResponse>): Promise<DatabaseUpdatesResponse>;
@@ -143,7 +143,7 @@ declare namespace nano {
      * @see Docs: {@link https://docs.couchdb.org/en/stable/api/server/common.html#uuids}
      */
     uuids(num?: number, callback?: Callback<any>): Promise<UUIDObject>;
-    /** 
+    /**
     * Accessing the root of a CouchDB instance returns meta information about the instance.
     * @see Docs: {@link https://docs.couchdb.org/en/stable/api/server/common.html#api-server-root} */
     info(callback?: Callback<InfoResponse>): Promise<InfoResponse>;
@@ -153,7 +153,7 @@ declare namespace nano {
     uuids: string[];
   }
 
-  /** 
+  /**
    * Response to CouchDB root API call - cluster information.
    * @see Docs: {@link https://docs.couchdb.org/en/stable/api/server/common.html#api-server-root} */
   interface InfoResponse {
@@ -165,7 +165,7 @@ declare namespace nano {
     vendor: { name: string }
   }
 
-  /** 
+  /**
    * Database creation options
    * @see Docs: {@link https://docs.couchdb.org/en/stable/api/database/common.html#put--db} */
   interface DatabaseCreateParams {
@@ -181,7 +181,7 @@ declare namespace nano {
         disable(id:string, rev: string, opts0: object, callback0?: Callback<DatabaseCreateResponse>): Promise<DatabaseCreateResponse>;
         query(id: string, opts0: object, callback0?: Callback<DatabaseGetResponse>): Promise<DatabaseGetResponse>;
     };
-    /** 
+    /**
      * Create database.
      * @see Docs: {@link http://docs.couchdb.org/en/latest/api/database/common.html#put--db} */
     create(name: string, params?: DatabaseCreateParams, callback?: Callback<DatabaseCreateResponse>): Promise<DatabaseCreateResponse>;
@@ -191,7 +191,7 @@ declare namespace nano {
     /** Delete database.
      * @see Docs: {@link http://docs.couchdb.org/en/latest/api/database/common.html#delete--db} */
     destroy(name: string, callback?: Callback<OkResponse>): Promise<OkResponse>;
-    /** List databases. 
+    /** List databases.
      * @see Docs: {@link http://docs.couchdb.org/en/latest/api/server/common.html#get--_all_dbs} */
     list(callback?: Callback<string[]>): Promise<string[]>;
     /** List databases as a stream.
@@ -206,14 +206,14 @@ declare namespace nano {
     /** Request compaction of a database's view indexes.
      * @see Docs: {@link https://docs.couchdb.org/en/stable/api/database/compact.html} */
     compact(name: string, designname: string, callback?: Callback<OkResponse>): Promise<OkResponse>;
-    /** Request a replication operation. 
+    /** Request a replication operation.
      * @see Docs: {@link http://docs.couchdb.org/en/latest/api/server/common.html#post--_replicate} */
     replicate<D>(
       source: string | DocumentScope<D>,
       target: string | DocumentScope<D>,
       callback?: Callback<DatabaseReplicateResponse>
     ): Promise<DatabaseReplicateResponse>;
-    /** Reqiest a replication 
+    /** Reqiest a replication
      * @see Docs: {@link http://docs.couchdb.org/en/latest/api/server/common.html#post--_replicate} */
     replicate<D>(
       source: string | DocumentScope<D>,
@@ -308,7 +308,7 @@ declare namespace nano {
     /** Return sorted list of changes to this database with options.
      * @see Docs: {@link http://docs.couchdb.org/en/latest/api/database/changes.html#get--db-_changes} */
     changes(params: DatabaseChangesParams, callback?: Callback<DatabaseChangesResponse>): Promise<DatabaseChangesResponse>;
-    /**  Changes feed follower. 
+    /**  Changes feed follower.
      * @see README: {@link https://www.npmjs.com/package/nano#reading-changes-feed} */
     changesReader: ChangesReaderScope;
     /** Initiates new session for specified user credentials by providing Cookie value.
@@ -321,7 +321,7 @@ declare namespace nano {
      * @see POST Docs: {@link http://docs.couchdb.org/en/latest/api/database/common.html#post--db}
      * @see PUT Docs: {@link http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid} */
     insert(document: ViewDocument<D> | D & MaybeDocument, callback?: Callback<DocumentInsertResponse>): Promise<DocumentInsertResponse>;
-    /** 
+    /**
      * Insert a document into this database with options.
      * @see POST Docs: {@link http://docs.couchdb.org/en/latest/api/database/common.html#post--db}
      * @see PUT Docs: {@link http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid} */
@@ -595,7 +595,7 @@ declare namespace nano {
     /** Create doc with multiple attachments using mutlipart HTTP request with options.
      * @see Docs: {@link http://docs.couchdb.org/en/latest/api/document/common.html#creating-multiple-attachments} */
     insert(doc: D, attachments: AttachmentData[], params: any, callback?: Callback<DocumentInsertResponse>): Promise<DocumentInsertResponse>;
-    /** Fetch document and its attachments as a multipart HTTP request. 
+    /** Fetch document and its attachments as a multipart HTTP request.
      * @see Docs: {@link https://docs.couchdb.org/en/latest/api/document/common.html#efficient-multiple-attachments-retrieving} */
     get(docname: string, callback?: Callback<any>): Promise<any>;
     /** Fetch document and its attachments as a multipart HTTP request with options.
@@ -657,7 +657,7 @@ declare namespace nano {
     db: string;
   }
 
-  /** Custom request options 
+  /** Custom request options
    * @see README: {@link https://www.npmjs.com/package/nano#nanorequestopts-callback}*/
   interface RequestOptions {
     db?: string;
@@ -920,13 +920,13 @@ declare namespace nano {
     feed?: "normal" | "longpoll" | "continuous" | "eventsource";
 
     /** Reference to a filter function from a design document.
-     * 
+     *
      * The filter function will filter whole stream emitting only filtered events. See the section Change Notifications
      * in the book CouchDB The Definitive Guide for more information. */
     filter?: string;
 
     /** Period in milliseconds after which an empty line is sent in the results.
-     * 
+     *
      * Only applicable for longpoll, continuous, and eventsource feeds. Overrides any timeout to keep the feed alive
      * indefinitely. May be true to use default value.
      *
@@ -948,7 +948,7 @@ declare namespace nano {
     attachments?: boolean;
 
     /** Include encoding information in attachment stubs.
-     * 
+     *
      * Only used if include_docs is true and the particular attachment is compressed. Ignored if include_docs isn’t
      * true.
      *
@@ -968,7 +968,7 @@ declare namespace nano {
     since?: number;
 
     /** Specifies how many revisions are returned in the changes array.
-     * 
+     *
      * The default, `"main_only"`, will only return the current “winning” revision; `"all_docs"` will return all leaf
      * revisions (including conflicts and deleted former conflicts).
      *
@@ -1111,7 +1111,7 @@ declare namespace nano {
   interface DocumentInsertParams {
     /** Document ID */
     docName?: string;
-    
+
     /** Document’s revision if updating an existing document. Alternative to If-Match header or document key. */
     rev?: string;
 
@@ -1119,7 +1119,7 @@ declare namespace nano {
     batch?: "ok";
 
     /** Prevents insertion of a conflicting document.
-     * 
+     *
      * If false, a well-formed `_rev` must be included in the document. `new_edits=false` is used by the replicator to
      * insert documents into the target database even if that leads to the creation of conflicts.
      *
@@ -1127,7 +1127,7 @@ declare namespace nano {
     new_edits?: boolean;
   }
 
-  /** Document insert response: 
+  /** Document insert response:
    * @see POST docs: {@link http://docs.couchdb.org/en/latest/api/database/common.html#post--db}
    * @see PUT docs: {@link http://docs.couchdb.org/en/latest/api/document/common.html#put--db-docid} */
   interface DocumentInsertResponse {
@@ -1214,7 +1214,7 @@ declare namespace nano {
     revs_info?: boolean;
   }
 
-  /** Document get response: 
+  /** Document get response:
    * @see docs: {@link http://docs.couchdb.org/en/latest/api/document/common.html#get--db-docid} */
   interface DocumentGetResponse {
     /** Document ID. */
@@ -1353,7 +1353,7 @@ declare namespace nano {
     include_docs?: boolean;
     inclusive_end?: boolean;
     key?: string;
-    keys?: string | string[]; 
+    keys?: string | string[];
     limit?: number;
     skip?: number;
     stale?: string;
@@ -1438,7 +1438,7 @@ declare namespace nano {
     doc_del_count: number;
   }
 
-  /** Document search parameters: 
+  /** Document search parameters:
    * @see Docs: {@link https://docs.couchdb.org/en/latest/ddocs/search.html#queries} */
   interface DocumentSearchParams {
     /** A bookmark that was received from a previous search. Used for pagination. */
@@ -1598,7 +1598,7 @@ declare namespace nano {
     skip?: number;
 
     /** Sort returned rows.
-     * 
+     *
      * Setting this to false offers a performance boost. The total_rows and offset fields are not available when this is
      * set to false.
      *
@@ -1611,10 +1611,10 @@ declare namespace nano {
     stable?: boolean;
 
     /** Allow the results from a stale view to be used.
-     * 
+     *
      * Supported values: ok, update_after and false.
-     * 
-     * - ok is equivalent to stable=true&update=false.  
+     *
+     * - ok is equivalent to stable=true&update=false.
      * - update_after is equivalent to stable=true&update=lazy.
      * - false is equivalent to stable=false&update=true.
      */
@@ -1688,7 +1688,7 @@ declare namespace nano {
 
   /** Mango query syntax.
    * @see Docs: {@link https://docs.couchdb.org/en/latest/api/database/find.html#db-find}  */
-  interface MangoQuery {
+  interface MangoQuery<Fields = string[]> {
     /** JSON object describing criteria used to select documents. */
     selector: MangoSelector;
 
@@ -1702,11 +1702,11 @@ declare namespace nano {
     sort?: SortOrder[];
 
     /** JSON array specifying which fields of each object should be returned.
-     * 
+     *
      * If it is omitted, the entire object is returned.
      *
      * @see Docs: {@link http://docs.couchdb.org/en/latest/api/database/find.html#filtering-fields} */
-    fields?: string[];
+    fields?: Fields;
 
     /* Instruct a query to use a specific index.
      *
@@ -1746,7 +1746,7 @@ declare namespace nano {
    * @see Docs: {@link https://docs.couchdb.org/en/latest/api/database/find.html#db-find}  */
   interface MangoResponse<D> {
     /** Array of documents matching the search.
-     * 
+     *
      * In each matching document, the fields specified in the fields part of the request body are listed, along with
      * their values. */
     docs: (D & {_id: string, _rev:string})[];
